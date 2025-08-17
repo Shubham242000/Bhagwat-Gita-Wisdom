@@ -13,8 +13,7 @@ app.use(express.json());
 const corsOptions = {
   origin: [
     'http://localhost:3000', // Development
-    'https://bhagwat-gita-wisdom.onrender.com', // Your deployed backend domain
-    'https://localhost:3000' // Alternative localhost
+    'https://bhagwat-gita-wisdom-1.onrender.com', // Your deployed frontend domain
   ],
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
