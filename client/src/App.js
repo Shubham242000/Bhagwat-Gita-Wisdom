@@ -6,6 +6,7 @@ function App() {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [inputFocused, setInputFocused] = useState(false);
 
   // Load messages from localStorage on component mount
   useEffect(() => {
@@ -120,7 +121,7 @@ function App() {
             {messages.map((message, index) => (
               <div key={index} className={`message ${message.role}`}>
                 <div className="message-header">
-                  <span className="role-badge">{message.role === 'user' ? '👤 You' : '🤖 AI'}</span>
+                  <span className="role-badge">{message.role === 'user' ? '👤 You' : '🕉️ Krishna'}</span>
                   <span className="timestamp">
                     {new Date(message.timestamp).toLocaleTimeString()}
                   </span>
@@ -154,24 +155,35 @@ function App() {
       </div>
       
       <form onSubmit={handleSubmit} className="input-form">
-        <textarea 
-          value={input} 
-          onChange={(e) => setInput(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' && !e.shiftKey) {
-              e.preventDefault();
-              if (input.trim() && !isLoading) {
-                handleSubmit(e);
+        <div className="input-wrapper">
+          <textarea 
+            value={input} 
+            onChange={(e) => setInput(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                if (input.trim() && !isLoading) {
+                  handleSubmit(e);
+                }
               }
-            }
-          }}
-          placeholder="Ask about life, dharma, karma, or any spiritual question..."
-          disabled={isLoading}
-          rows={3}
-        />
-        <button type="submit" disabled={isLoading || !input.trim()}>
-          {isLoading ? "..." : "Send Message"}
-        </button>
+            }}
+            placeholder="Ask about life, dharma, karma, or any spiritual question..."
+            disabled={isLoading}
+            rows={3}
+            onFocus={() => setInputFocused(true)}
+            onBlur={() => setInputFocused(false)}
+          />
+          <button 
+            type="submit" 
+            disabled={isLoading || !input.trim()}
+            className={`send-button ${inputFocused ? 'visible' : ''}`}
+            title="Send message"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
       </form>
     </div>
   );
