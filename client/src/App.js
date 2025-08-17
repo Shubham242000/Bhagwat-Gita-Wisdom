@@ -66,13 +66,21 @@ function App() {
 
       let aiResponse = "";
       
-      if (responseData?.response?.choices) {
+      console.log('Full API response:', responseData); // Debug log
+      
+      if (responseData?.response?.choices?.[0]?.message?.content) {
         aiResponse = responseData.response.choices[0].message.content;
       } else if (responseData?.response?.content) {
         aiResponse = responseData.response.content;
+      } else if (responseData?.choices?.[0]?.message?.content) {
+        // Direct response without nested 'response' key
+        aiResponse = responseData.choices[0].message.content;
+      } else if (responseData?.response?.generated_text) {
+        // Alternative Hugging Face response format
+        aiResponse = responseData.response.generated_text;
       } else {
-        console.log('Full response:', responseData);
-        aiResponse = "Sorry, I couldn't generate a response.";
+        console.log('Full response structure:', JSON.stringify(responseData, null, 2));
+        aiResponse = "Sorry, I couldn't generate a response. Please check the console for details.";
       }
       
       
