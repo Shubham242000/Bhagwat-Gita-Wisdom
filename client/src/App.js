@@ -36,7 +36,12 @@ function App() {
     const updatedMessages = [...messages, userMessage];
     setMessages(updatedMessages);
     try {
-      const res = await fetch("/chat", {
+      // Use production URL when not in development
+      const apiUrl = process.env.NODE_ENV === 'production' 
+        ? 'https://bhagwat-gita-wisdom.onrender.com/chat'
+        : '/chat';
+        
+      const res = await fetch(apiUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
@@ -46,15 +51,27 @@ function App() {
       });
 
       if (!res.ok) {
+        const errorText = await res.text();
+        console.error('API Error:', res.status, errorText);
         throw new Error(`HTTP error! status: ${res.status}`);
       }
 
-      const { response } = await res.json();
+      let responseData;
+      try {
+        responseData = await res.json();
+      } catch (parseError) {
+        console.error('JSON Parse Error:', parseError);
+        throw new Error('Invalid response from server');
+      }
+
       let aiResponse = "";
       
-      if (response?.choices) {
-        aiResponse = response.choices[0].message.content;
+      if (responseData?.response?.choices) {
+        aiResponse = responseData.response.choices[0].message.content;
+      } else if (responseData?.response?.content) {
+        aiResponse = responseData.response.content;
       } else {
+        console.log('Full response:', responseData);
         aiResponse = "Sorry, I couldn't generate a response.";
       }
       
