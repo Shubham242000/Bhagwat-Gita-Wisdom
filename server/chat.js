@@ -9,6 +9,15 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Set UTF-8 encoding headers
+app.use((req, res, next) => {
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.setHeader('Content-Encoding', 'utf-8');
+  next();
+});
+
 // Configure CORS for production
 const corsOptions = {
   origin: [
@@ -110,6 +119,8 @@ app.post("/chat", async (req, res) => {
             return res.status(500).json({ error: 'No response from AI service' });
         }
         
+        // Ensure proper UTF-8 encoding for the response
+        res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.status(200).json({response});
     } catch (error) {
         console.error('Chat endpoint error:', error);

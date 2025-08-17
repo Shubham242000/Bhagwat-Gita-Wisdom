@@ -8,8 +8,11 @@ html, body, #root {
   margin: 0;
   padding: 0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  background: linear-gradient(135deg, #f7e7ce 0%, #f7e7ce 50%, #cd9575 100%);
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 .app-container {
@@ -20,8 +23,8 @@ html, body, #root {
   flex-direction: column;
   backdrop-filter: blur(20px);
   border-radius: 0;
-  box-shadow: 0 0 60px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 60px rgba(140, 59, 0, 0.15);
+  border: 1px solid rgba(140, 59, 0, 0.2);
 }
 
 /* Header */
@@ -30,8 +33,8 @@ html, body, #root {
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border-bottom: 1px solid rgba(140, 59, 0, 0.3);
+  background: linear-gradient(135deg, rgba(247, 231, 206, 0.95) 0%, rgba(205, 149, 117, 0.95) 100%);
   backdrop-filter: blur(30px);
   flex-wrap: wrap;
   gap: 15px;
@@ -39,12 +42,12 @@ html, body, #root {
 
 .header h1 {
   margin: 0;
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: 700;
-  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+  background: linear-gradient(135deg, #8c3b00 0%, #a57164 50%, #cd9575 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: #fbbf24;
+  color: #8c3b00;
   letter-spacing: -0.02em;
   text-align: center;
   /* flex: 1; */
@@ -89,16 +92,16 @@ html, body, #root {
 .message {
   padding: 20px;
   border-radius: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+  border: 1px solid rgba(140, 59, 0, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 231, 206, 0.95) 100%);
   backdrop-filter: blur(20px);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(140, 59, 0, 0.1);
 }
 
 .message:hover {
-  border-color: rgba(5, 150, 105, 0.3);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  border-color: rgba(140, 59, 0, 0.4);
+  box-shadow: 0 6px 25px rgba(140, 59, 0, 0.15);
   transform: translateY(-1px);
 }
 
@@ -110,8 +113,8 @@ html, body, #root {
 
 .message.assistant {
   margin-right: 20px;
-  background: linear-gradient(135deg, rgba(240, 253, 244, 0.95) 0%, rgba(220, 252, 231, 0.95) 100%);
-  border-color: rgba(5, 150, 105, 0.2);
+  background: linear-gradient(135deg, rgba(247, 231, 206, 0.95) 0%, rgba(205, 149, 117, 0.95) 100%);
+  border-color: rgba(140, 59, 0, 0.25);
 }
 
 .message-header {
@@ -126,11 +129,11 @@ html, body, #root {
 
 .role-badge {
   font-weight: 700;
-  color: #059669;
+  color: #8c3b00;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 9px;
-  text-shadow: 0 0 8px rgba(5, 150, 105, 0.2);
+  text-shadow: 0 0 8px rgba(140, 59, 0, 0.2);
 }
 
 .timestamp {
@@ -142,7 +145,7 @@ html, body, #root {
 .message-content {
   line-height: 1.6;
   color: #334155;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 /* Markdown styling for AI responses */
@@ -160,20 +163,20 @@ html, body, #root {
 }
 
 .message.assistant h1 {
-  font-size: 1.1rem;
+  font-size: 18px;
   margin-top: 0;
-  border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+  border-bottom: 2px solid rgba(5, 150, 105, 0.4);
   padding-bottom: 4px;
 }
 
 .message.assistant h2 {
-  font-size: 1rem;
-  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  font-size: 16px;
+  border-bottom: 1px solid rgba(5, 150, 105, 0.3);
   padding-bottom: 3px;
 }
 
 .message.assistant h3 {
-  font-size: 0.9rem;
+  font-size: 15px;
   color: #334155;
 }
 
@@ -216,12 +219,12 @@ html, body, #root {
 }
 
 .message.assistant blockquote {
-  border-left: 3px solid rgba(5, 150, 105, 0.4);
+  border-left: 3px solid rgba(140, 59, 0, 0.4);
   padding-left: 14px;
   margin: 12px 0;
   font-style: italic;
-  color: #475569;
-  background: rgba(5, 150, 105, 0.05);
+  color: #8c3b00;
+  background: rgba(140, 59, 0, 0.05);
   padding: 10px 14px;
   border-radius: 6px;
 }
@@ -324,9 +327,9 @@ html, body, #root {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  /* background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%); */
+  background: linear-gradient(135deg, rgba(247, 231, 206, 0.95) 0%, rgba(205, 149, 117, 0.95) 100%);
   backdrop-filter: blur(30px);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(140, 59, 0, 0.2);
 }
 
 .input-wrapper {
@@ -387,7 +390,7 @@ textarea {
   padding: 16px 20px;
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 12px;
-  font-size: 13px;
+  font-size: 15px;
   outline: none;
   transition: all 0.3s ease;
   font-family: inherit;
@@ -399,9 +402,9 @@ textarea {
 }
 
 textarea:focus {
-  border-color: rgba(5, 150, 105, 0.6);
-  box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1), 0 6px 25px rgba(0, 0, 0, 0.08);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 100%);
+  border-color: rgba(140, 59, 0, 0.6);
+  box-shadow: 0 0 0 4px rgba(140, 59, 0, 0.1), 0 6px 25px rgba(140, 59, 0, 0.08);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(247, 231, 206, 1) 100%);
 }
 
 textarea::placeholder {
@@ -416,7 +419,7 @@ button {
   color: #0f172a;
   border: 2px solid rgba(212, 175, 55, 0.5);
   border-radius: 12px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
