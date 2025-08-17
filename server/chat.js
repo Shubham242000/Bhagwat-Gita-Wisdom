@@ -9,7 +9,19 @@ dotenv.config();
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+// Configure CORS for production
+const corsOptions = {
+  origin: [
+    'http://localhost:3000', // Development
+    'https://bhagwat-gita-wisdom.onrender.com', // Your deployed backend domain
+    'https://localhost:3000' // Alternative localhost
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+};
+
+app.use(cors(corsOptions));
 
 
 const HF_API_KEY = process.env.HF_API_KEY;
