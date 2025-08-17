@@ -5,11 +5,9 @@
 
 html, body, #root {
   height: 100dvh; /* Dynamic viewport height for mobile */
-  margin: 0;
-  padding: 0;
+  margin: 0px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: linear-gradient(135deg, #f7e7ce 0%, #f7e7ce 50%, #cd9575 100%);
-  overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -18,6 +16,7 @@ html, body, #root {
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
+  gap: 10px;
   min-height: 100vh;
   min-height: 100dvh; /* Dynamic viewport height for mobile */
   display: flex;
@@ -84,7 +83,8 @@ html, body, #root {
 /* Chat container */
 .chat-container {
   flex: 1;
-  overflow-y: auto;
+  max-height: 80vh;
+  overflow-y: scroll;
   padding: 20px;
   background: transparent;
 }
@@ -325,13 +325,14 @@ html, body, #root {
 /* Input form */
 .input-form {
   display: flex;
+
   flex-direction: column;
-  gap: 12px;
+  /* gap: 12px; */
   justify-content: center;
   align-items: stretch;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  /* max-width: 800px; */
+  margin: 0;
   padding: 20px;
   background: linear-gradient(135deg, rgba(247, 231, 206, 0.95) 0%, rgba(205, 149, 117, 0.95) 100%);
   backdrop-filter: blur(30px);
@@ -456,10 +457,11 @@ button:disabled {
 }
 
 textarea:disabled {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.6) 100%);
-  color: #64748b;
+  background: linear-gradient(135deg, rgba(247, 231, 206, 0.8) 0%, rgba(205, 149, 117, 0.8) 100%);
+  color: #8c3b00;
   cursor: not-allowed;
-  border-color: rgba(100, 116, 139, 0.3);
+  border-color: rgba(140, 59, 0, 0.2);
+  opacity: 0.8;
 }
 
 /* Scrollbar styling */
