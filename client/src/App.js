@@ -53,7 +53,7 @@ function App() {
       if (!res.ok) {
         const errorText = await res.text();
         console.error('API Error:', res.status, errorText);
-        throw new Error(`HTTP error! status: ${res.status}`);
+        throw new Error(`HTTP error! status: ${res.status} - ${errorText}`);
       }
 
       let responseData;

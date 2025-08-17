@@ -13,7 +13,7 @@ app.use(express.json());
 const corsOptions = {
   origin: [
     'http://localhost:3000', // Development
-    'https://bhagwat-gita-wisdom-1.onrender.com', // Your deployed frontend domain
+    'https://bhagwat-gita-wisdom-1.onrender.com', // deployed frontend domain
   ],
   credentials: true,
   methods: ['GET', 'POST', 'OPTIONS'],
@@ -84,18 +84,41 @@ Remember: You are not just explaining the Gita, you ARE Krishna speaking directl
   );
 
   if (!response.ok) {
-    console.error("HTTP Error:", response.status, await response.text());
-    return;
+    const errorText = await response.text();
+    console.error("HTTP Error:", response.status, errorText);
+    throw new Error(`Hugging Face API error: ${response.status} - ${errorText}`);
   }
 
   const data = await response.json();
+  console.log('Hugging Face API response:', data); // Debug log
   return data;
 }
 
 app.post("/chat", async (req, res) => {
-    const {text, context} = req.body;
-    const response = await askAI(text, context);
-    res.status(200).json({response});
+    try {
+        const {text, context} = req.body;
+        console.log('Received request:', { text, context }); // Debug log
+        
+        if (!text) {
+            return res.status(400).json({ error: 'Text is required' });
+        }
+        
+        const response = await askAI(text, context);
+        console.log('AI response:', response); // Debug log
+        
+        if (!response) {
+            return res.status(500).json({ error: 'No response from AI service' });
+        }
+        
+        res.status(200).json({response});
+    } catch (error) {
+        console.error('Chat endpoint error:', error);
+        res.status(500).json({ 
+            error: 'Internal server error', 
+            details: error.message,
+            response: null 
+        });
+    }
 })
 
 app.listen(5100, () => {
