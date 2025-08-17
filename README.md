@@ -181,9 +181,7 @@ We welcome contributions to make this spiritual tool even better!
 3. Make your changes
 4. Submit a pull request
 
-## 📱 Screenshots
-
-*[Add screenshots of your application here]*
+ 
 
 ## 🎨 Design Philosophy
 
@@ -213,10 +211,7 @@ The application follows a **minimal royal aesthetic** that reflects the divine n
 - **Divine Inspiration**: Shree Krishna and the Bhagwat Gita
 - **Open Source**: Community contributions and libraries
 - **Spiritual Teachers**: All gurus who preserve this wisdom
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+ 
 
 ## 🕉️ Om Tat Sat
 
