@@ -69,6 +69,12 @@ Bhagwat Gita AI is a spiritual AI chat application that provides divine wisdom a
 
 ### Running the Application
 
+#### Option 1: Production (Recommended)
+The application is already deployed and ready to use:
+- **Live Demo**: [Bhagwat Gita AI](https://bhagwat-gita-wisdom.onrender.com)
+- **No setup required** - just open the link in your browser
+
+#### Option 2: Local Development
 1. **Start the server**
    ```bash
    cd server
@@ -126,6 +132,17 @@ Bhagwat Gita AI is a spiritual AI chat application that provides divine wisdom a
 - **Knowledge Base**: Comprehensive Gita teachings
 - **Response Style**: Divine, compassionate, authoritative
 - **Context Awareness**: Remembers conversation flow
+
+## 🚀 Deployment
+
+### Production
+- **Backend**: Deployed on [Render](https://render.com)
+- **Frontend**: Ready for deployment (can be deployed to Vercel, Netlify, etc.)
+- **Live Demo**: [Bhagwat Gita AI](https://bhagwat-gita-wisdom.onrender.com)
+
+### Local Development
+- **Backend**: Runs on `http://localhost:5000`
+- **Frontend**: Runs on `http://localhost:3000`
 
 ## 🔧 Configuration
 
