@@ -45,6 +45,13 @@ html, body, #root {
   gap: 15px;
 }
 
+.header > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
 .header h1 {
   margin: 0;
   font-size: 20px;
@@ -56,6 +63,17 @@ html, body, #root {
   letter-spacing: -0.02em;
   text-align: center;
   /* flex: 1; */
+}
+
+.header .subtitle {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #8c3b00;
+  text-align: center;
+  opacity: 0.8;
+  font-style: italic;
+  line-height: 1.4;
 }
 
 .clear-button {
@@ -188,14 +206,38 @@ html, body, #root {
 
 .empty-state {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  color: #64748b;
-  font-size: 1rem;
-  font-weight: 500;
+  height: 300px;
+  color: #8c3b00;
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, rgba(247, 231, 206, 0.3) 0%, rgba(205, 149, 117, 0.1) 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(140, 59, 0, 0.1);
+  margin: 20px;
+}
+
+.empty-state h2 {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8c3b00 0%, #a57164 50%, #cd9575 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #8c3b00;
+  letter-spacing: -0.02em;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #8c3b00;
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 500px;
 }
 
 .message.assistant p {
