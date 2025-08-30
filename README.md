@@ -71,7 +71,7 @@ Bhagwat Gita AI is a spiritual AI chat application that provides divine wisdom a
 
 #### Option 1: Production (Recommended)
 The application is already deployed and ready to use:
-- **Live Demo**: [Bhagwat Gita AI](https://bhagwat-gita-wisdom.onrender.com)
+- **Live Demo**: [Bhagwat Gita AI](https://bhagwat-gita-wisdom-1.onrender.com/)
 - **No setup required** - just open the link in your browser
 
 #### Option 2: Local Development
@@ -80,7 +80,7 @@ The application is already deployed and ready to use:
    cd server
    node chat.js
    ```
-   Server will run on `http://localhost:5000`
+   Server will run on `http://localhost:5100`
 
 2. **Start the client**
    ```bash
@@ -137,8 +137,8 @@ The application is already deployed and ready to use:
 
 ### Production
 - **Backend**: Deployed on [Render](https://render.com)
-- **Frontend**: Ready for deployment (can be deployed to Vercel, Netlify, etc.)
-- **Live Demo**: [Bhagwat Gita AI](https://bhagwat-gita-wisdom.onrender.com)
+- **Frontend**:  Deployed on [Render](https://render.com)
+- **Live Demo**: [Bhagwat Gita AI](https://bhagwat-gita-wisdom-1.onrender.com/)
 
 ### Local Development
 - **Backend**: Runs on `http://localhost:5000`
@@ -187,18 +187,9 @@ We welcome contributions to make this spiritual tool even better!
 
 The application follows a **minimal royal aesthetic** that reflects the divine nature of the content:
 - **Golden Accents**: Represent divine wisdom and prosperity
-- **Dark Theme**: Creates a sacred, focused atmosphere
 - **Clean Typography**: Ensures readability of spiritual content
 - **Responsive Design**: Accessible on all devices
 
-## 🔮 Future Enhancements
-
-- [ ] Voice interaction
-- [ ] Multiple language support
-- [ ] Meditation timer integration
-- [ ] Daily wisdom notifications
-- [ ] Community features
-- [ ] Advanced AI models
 
 ## 📚 Resources
 
